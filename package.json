@@ -22,7 +22,8 @@
     "lint-staged": "lint-staged",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prepare": "husky install",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format:check": "prettier . --check"
   },
   "dependencies": {
     "@apollo/client": "^3.10.4",
