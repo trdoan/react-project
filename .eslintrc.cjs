@@ -79,5 +79,11 @@ module.exports = {
     ],
     'no-restricted-exports': ['off'],
     'import/prefer-default-export': ['off'],
+    'import/export': ['off'],
+  },
+  settings: {
+    'import/resolver': {
+      typescript: {},
+    },
   },
 }
