@@ -32,7 +32,12 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
-    'import-newlines/enforce': ['error'],
+    'import-newlines/enforce': [
+      'error',
+      {
+        'max-len': 60,
+      },
+    ],
     'import/no-unresolved': [
       2,
       {
