@@ -1,3 +1,4 @@
+import '@/styles/global.scss'
 import { ApolloProvider } from '@apollo/client'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
