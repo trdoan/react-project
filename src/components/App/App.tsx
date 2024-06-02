@@ -6,9 +6,15 @@ import {
   Profile,
   Register,
 } from '@/pages'
-import { useRoutes } from 'react-router-dom'
+import { useNavigate, useRoutes } from 'react-router-dom'
+import { ErrorBoundary } from '../ErrorBoundary'
 
 export function App() {
+  const navigate = useNavigate()
+  const onError = () => {
+    navigate('/500')
+  }
+
   const routes = useRoutes([
     {
       path: '/',
@@ -36,5 +42,5 @@ export function App() {
     },
   ])
 
-  return <main>{routes}</main>
+  return <ErrorBoundary onError={onError}>{routes}</ErrorBoundary>
 }
