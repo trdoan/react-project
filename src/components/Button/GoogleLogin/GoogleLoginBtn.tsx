@@ -1,16 +1,10 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useGoogleLogin } from '@react-oauth/google'
 
-type Props = {}
-
-function GoogleLoginBtn(props: Props) {
+function GoogleLoginBtn() {
   const login = useGoogleLogin({
-    onSuccess: (response) => {
-      console.log(response)
-    },
-    onError: (error) => {
-      console.log(error)
-    },
+    onSuccess: () => {},
+    onError: () => {},
   })
 
   const handleLogin = () => {
