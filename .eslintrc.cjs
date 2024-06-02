@@ -15,6 +15,8 @@ module.exports = {
     'commitlint.config.cjs',
     'dist',
     'node_modules',
+    'postcss.config.js',
+    'tailwind.config.js',
     'vite.config.ts',
   ],
   parser: '@typescript-eslint/parser',
