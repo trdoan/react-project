@@ -1,21 +1,19 @@
 import { tw } from '@/helpers/tailwindcss'
 import classNames from 'classnames'
-import {
-  cloneElement,
-  MouseEventHandler,
-  ReactElement,
-  ReactNode,
-  useEffect,
-} from 'react'
+import { ComponentType, ReactNode, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { twMerge } from 'tailwind-merge'
+
+type CloseButtonProps = {
+  onClick?: () => void
+}
 
 type Props = {
   open: boolean
   onChange?: () => void
   onClose?: () => void
   children?: ReactNode
-  closeButton?: ReactNode
+  closeButton?: ComponentType<CloseButtonProps>
   fullScreen?: boolean
   clickOutside?: boolean
   classNames?: {
@@ -34,27 +32,19 @@ const Modal = (props: Props) => {
     onChange,
     children,
     onClose,
-    closeButton,
+    closeButton: CloseButton,
     fullScreen,
     classNames: classes,
     clickOutside,
   } = props
 
-  const handleClose: MouseEventHandler<HTMLDivElement> = () => {
+  const handleClose = () => {
     onClose?.()
   }
 
   useEffect(() => {
     onChange?.()
   }, [onChange, open])
-
-  const CloseButton = () => {
-    if (!closeButton) return null
-
-    return cloneElement(closeButton as ReactElement, {
-      onClick: handleClose,
-    })
-  }
 
   return createPortal(
     <div className={twMerge(classNames('modal', classes?.root))}>
@@ -85,7 +75,7 @@ const Modal = (props: Props) => {
         )}
       >
         <div className={tw('modal-header', classNames(classes?.header))}>
-          <CloseButton />
+          {CloseButton && <CloseButton onClick={handleClose} />}
         </div>
         <div className={tw('modal-content', classNames(classes?.content))}>
           {children}
