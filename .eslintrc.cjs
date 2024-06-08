@@ -16,6 +16,11 @@ module.exports = {
     'tailwind.config.js',
     'vite.config.ts',
   ],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
