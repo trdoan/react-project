@@ -1,5 +1,3 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable no-console */
 import { logErrorToDiscordChannel } from '@/helpers/log'
 import { InternalServerError } from '@/pages'
 import React, { ErrorInfo, ReactNode } from 'react'
@@ -22,7 +20,7 @@ export class ErrorBoundary extends React.Component<
     this.state = { hasError: false }
   }
 
-  static getDerivedStateFromError(_: Error): ErrorBoundaryState {
+  static getDerivedStateFromError(): ErrorBoundaryState {
     // Update state so the next render will show the fallback UI.
     return { hasError: true }
   }
