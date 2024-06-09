@@ -1,13 +1,11 @@
-name: CI
+name: Deploy to Render
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: ['*']
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     strategy:
@@ -25,12 +23,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Run ESLint
-        run: npm run lint
-
-      - name: Run Prettier
-        run: npm run format:check
 
       - name: Build application
         run: npm run build
