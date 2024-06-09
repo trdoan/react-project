@@ -1,4 +1,4 @@
-name: Check format code
+name: PR Checks
 
 on:
   push:
@@ -7,7 +7,8 @@ on:
     branches: ['*']
 
 jobs:
-  build:
+  lint:
+    name: 'Lint, Prettier, Build Checks'
     runs-on: ubuntu-latest
 
     strategy:
