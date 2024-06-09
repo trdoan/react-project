@@ -7,19 +7,10 @@
       "path": "git-cz"
     }
   },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json}": [
-      "eslint --fix --max-warnings=0"
-    ],
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md,mdx}": [
-      "prettier --write"
-    ]
-  },
   "scripts": {
     "build": "tsc && vite build",
     "commit": "git-cz --disable-emoji",
     "dev": "vite",
-    "lint-staged": "lint-staged",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prepare": "husky install",
     "preview": "vite preview",
