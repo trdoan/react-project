@@ -16,9 +16,6 @@ jobs:
         node-version: [20]
 
     steps:
-      - name: Check security vulnerability packages
-        run: npm audit
-
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -29,6 +26,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Check security vulnerability packages
+        run: npm audit
 
       - name: Run ESLint
         run: npm run lint
