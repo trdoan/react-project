@@ -14,6 +14,9 @@ jobs:
         node-version: [20]
 
     steps:
+      - name: Check security vulnerability packages
+        run: npm audit
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
